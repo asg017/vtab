@@ -11,6 +11,7 @@ func (vg *valueGetter) ResultInt64(v int64)           { vg.value = v }
 func (vg *valueGetter) ResultFloat(v float64)         { vg.value = v }
 func (vg *valueGetter) ResultNull()                   { vg.value = nil }
 func (vg *valueGetter) ResultValue(v sqlite.Value)    { vg.value = v }
+func (vg *valueGetter) ResultSubType(v int)        		{ vg.value = v }
 func (vg *valueGetter) ResultZeroBlob(n int64)        { vg.value = n }
 func (vg *valueGetter) ResultText(v string)           { vg.value = v }
 func (vg *valueGetter) ResultBlob(v []byte)           { vg.value = v }

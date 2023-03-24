@@ -93,6 +93,7 @@ type Context interface {
 	ResultNull()
 	ResultValue(v sqlite.Value)
 	ResultBlob(v []byte)
+	ResultSubType(v int)
 	ResultZeroBlob(n int64)
 	ResultText(v string)
 	ResultError(err error)

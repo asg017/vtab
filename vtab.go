@@ -176,6 +176,12 @@ func (t *tableFuncTable) BestIndex(input *sqlite.IndexInfoInput) (*sqlite.IndexI
 
 	orderByUsed := true
 	for _, order := range input.OrderBy {
+		// ColumnIndex will be -1 on rowids, so check before accessing
+		if order.ColumnIndex < 0 {
+			// TODO not sure if this is the right flag to set
+			orderByUsed = false
+			continue
+		}
 		col := t.columns[order.ColumnIndex]
 		if col.OrderBy&ASC != 0 && !order.Desc {
 			idx.Orders = append(idx.Orders, order)

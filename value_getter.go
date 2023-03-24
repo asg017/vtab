@@ -13,5 +13,6 @@ func (vg *valueGetter) ResultNull()                   { vg.value = nil }
 func (vg *valueGetter) ResultValue(v sqlite.Value)    { vg.value = v }
 func (vg *valueGetter) ResultZeroBlob(n int64)        { vg.value = n }
 func (vg *valueGetter) ResultText(v string)           { vg.value = v }
+func (vg *valueGetter) ResultBlob(v []byte)           { vg.value = v }
 func (vg *valueGetter) ResultError(err error)         { vg.value = err }
 func (vg *valueGetter) ResultPointer(val interface{}) { vg.value = val }

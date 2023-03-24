@@ -92,6 +92,7 @@ type Context interface {
 	ResultFloat(v float64)
 	ResultNull()
 	ResultValue(v sqlite.Value)
+	ResultBlob(v []byte)
 	ResultZeroBlob(n int64)
 	ResultText(v string)
 	ResultError(err error)
